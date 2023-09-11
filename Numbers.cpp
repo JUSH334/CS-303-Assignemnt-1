@@ -163,8 +163,13 @@ void Numbers::replaceNumber() {
 	int del_num;
 	cout << "Enter an index of an integer to delete it: ";
 	cin >> del_num;
-	new_size -= 1; //decrements in order to keep index open for potentially adding a number
-	for (int i = del_num; i < SIZE; i++) {
+	if (del_num > new_size) { //if user tries to delete a value not displayed
+		cout << "Enter an index with an assigned value." << endl;
+	}
+	else {
+		new_size -= 1; //decrements in order to keep index open for potentially adding a number
+		for (int i = del_num; i < SIZE; i++) {
 			array[i] = array[i + 1];
 		}
 	}
+}
