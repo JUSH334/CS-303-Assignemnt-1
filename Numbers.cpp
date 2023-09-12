@@ -62,6 +62,8 @@ void Numbers::checkNumber() {
 	}
 	if (num_exist == false) {
 		cout << "Number does not exist." << endl;
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clears input stream
 	}
 }
 
