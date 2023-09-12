@@ -77,7 +77,7 @@ void Numbers::modifyNumber() {
 		try {
 			cout << "Enter an index of an integer to modify: ";
 			cin >> numIndex;
-			if (numIndex > SIZE) {
+			if (numIndex > SIZE || numIndex < 0 || numIndex >= new_size) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n'); //clears input stream
 				throw out_of_range("The index is out of range.");
@@ -164,7 +164,10 @@ void Numbers::replaceNumber() {
 	cout << "Enter an index of an integer to delete it: ";
 	cin >> del_num;
 	if (del_num > new_size) { //if user tries to delete a value not displayed
-		cout << "Enter an index with an assigned value." << endl;
+		cout << "Enter an index with an assigned value. No changes occured." << endl;
+	}
+	else if (del_num < 0) { //if index less than 0
+		cout << "Please enter a valid index. No changes occured." << endl;
 	}
 	else {
 		new_size -= 1; //decrements in order to keep index open for potentially adding a number
